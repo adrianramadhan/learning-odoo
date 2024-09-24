@@ -1,0 +1,21 @@
+{
+    'name': 'Module Custom Pembelian',
+    'version': '1.0',
+    'category': 'purchase',
+    'summary': 'Module Custom Pembelian',
+    'description': """
+        Ini Adalah Module Custom Pembelian
+    """,
+    'website': '',
+    'author': 'Adrian Ramadhan',
+    'depends': ['web', 'base'],
+    'data': [
+        'security/ir.model.access.csv',
+        'views/pembelian_view.xml',
+        'views/pembelian_actions.xml',
+        'views/pembelian_menuitem.xml',
+    ],
+    'installable': True,
+    'application': True,
+    'license': 'OEEL-1',
+}
