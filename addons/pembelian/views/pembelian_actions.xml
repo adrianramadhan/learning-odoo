@@ -3,7 +3,6 @@
     <record id="pembelian_actions" model="ir.actions.act_window">
         <field name="name">Pembelian</field>
         <field name="res_model">pembelian.pembelian</field>
-        <field name="view_mode">tree,form</field>
     </record>
 
     <record id="pembelian_actions_tree_view_id" model="ir.actions.act_window.view">
@@ -11,10 +10,17 @@
         <field name="view_mode">tree</field>
         <field name="view_id" ref="pembelian_tree_view_id"/> <!-- Pastikan ini merujuk ke ID yang valid -->
         <field name="act_window_id" ref="pembelian_actions"/> <!-- Pastikan ini juga benar -->
-    </record>  
+    </record>
+
+    <record id="pembelian_actions_kanban_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="pembelian_kanban_view_id"/>
+        <field name="act_window_id" ref="pembelian_actions" />
+    </record>
 
     <record id="pembelian_actions_form_view_id" model="ir.actions.act_window.view">
-        <field name="sequence" eval="2"/>
+        <field name="sequence" eval="3"/>
         <field name="view_mode">form</field>
         <field name="view_id" ref="pembelian_form_view_id"/> <!-- Pastikan ini merujuk ke ID yang valid -->
         <field name="act_window_id" ref="pembelian_actions"/>
