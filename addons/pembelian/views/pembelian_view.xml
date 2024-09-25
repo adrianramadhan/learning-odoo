@@ -12,4 +12,26 @@
         </field>
     </record>
     
+    <record id="pembelian_form_view_id" model="ir.ui.view">
+        <field name="name">pembelian_form_view_id</field>
+        <field name="model">pembelian.pembelian</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <field name="status" widget="statusbar"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group>
+                            <field name="tanggal"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+        
+    </record>
 </odoo>

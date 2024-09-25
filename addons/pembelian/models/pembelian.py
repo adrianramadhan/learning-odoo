@@ -5,4 +5,4 @@ class Pembelian(models.Model):
 
     name = fields.Char(string='Name')
     tanggal = fields.Date(string='Tanggal')
-    status = fields.Selection([('draft', 'Draft'), ('to_approve', 'To Approve'), ('approved', 'Approved'), ('done', 'Done')])
+    status = fields.Selection([('draft', 'Draft'), ('to_approve', 'To Approve'), ('approved', 'Approved'), ('done', 'Done')], default='draft', string='Status')

@@ -41,7 +41,7 @@ services:
     image: odoo:16.0
     ports:
       - "1876:8069"
-    command: ["--log-level=debug"]
+    command: ["--log-level=debug", "--dev=all", "-u", "pembelian"]
     container_name: "belajar-odoo"
     restart: "unless-stopped"
     volumes:

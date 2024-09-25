@@ -12,4 +12,11 @@
         <field name="view_id" ref="pembelian_tree_view_id"/> <!-- Pastikan ini merujuk ke ID yang valid -->
         <field name="act_window_id" ref="pembelian_actions"/> <!-- Pastikan ini juga benar -->
     </record>  
+
+    <record id="pembelian_actions_form_view_id" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pembelian_form_view_id"/> <!-- Pastikan ini merujuk ke ID yang valid -->
+        <field name="act_window_id" ref="pembelian_actions"/>
+    </record>
 </odoo>
