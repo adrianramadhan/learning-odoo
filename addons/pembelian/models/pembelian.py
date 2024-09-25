@@ -1,4 +1,4 @@
-from odoo import models, fields
+from odoo import models, fields, api
 
 class Pembelian(models.Model):
     _name = 'pembelian.pembelian'
@@ -12,8 +12,15 @@ class Pembelian(models.Model):
 class pembelian_line(models.Model):
     _name = 'pembelian.line'
 
+    @api.onchange('product_id')
+    def onchange_product_id(self):
+        if self.product_id:
+            self.description = self.product_id.name
+        return {}
+
     pembelian_id = fields.Many2one('pembelian.pembelian', string='Pembelian ID')
     product_id = fields.Many2one('product.product', string='Product')
+    description = fields.Text(string='Description')
     quantity = fields.Float(string='Quantity', default=0.0)
     uom_id = fields.Many2one('uom.uom', string='Uom Id')
 
