@@ -24,6 +24,7 @@
                     <group>
                         <group>
                             <field name="name"/>
+                            <field name="brand_ids" widget="many2many_tags"/>
                         </group>
                         <group>
                             <field name="tanggal"/>
@@ -71,6 +72,16 @@
                     </t>
                 </templates>
             </kanban>
+        </field>
+    </record>
+
+    <record id="pembelian_brand_tree_view_id" model="ir.ui.view">
+        <field name="name">pembelian_brand_tree_view_id</field>
+        <field name="model">pembelian.brand</field>
+        <field name="arch" type="xml">
+            <tree editable="bottom">
+                <field name="name"/>
+            </tree>
         </field>
     </record>
 </odoo>

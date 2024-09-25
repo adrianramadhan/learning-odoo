@@ -1,15 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <menuitem
-        id="parent_pembelian-pembelian_id"
+        id="parent_pembelian_pembelian_id"
         name="Pembelian"
         sequence="5"
     />
     <menuitem 
-        id="child_pembelian-pembelian_id"
+        id="child_pembelian_pembelian_id"
         name="Pembelian"
         sequence="1"
-        parent="parent_pembelian-pembelian_id"
-        action="pembelian_actions"
+        parent="parent_pembelian_pembelian_id"
+        action="pembelian_actions_id"
+    />
+    <menuitem 
+        id="child_pembelian_brand_id"
+        name="Brand"
+        sequence="2"
+        parent="parent_pembelian_pembelian_id"
+        action="brand_actions_id"
     />
 </odoo>
