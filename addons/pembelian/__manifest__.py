@@ -14,6 +14,7 @@
         'views/pembelian_view.xml',
         'views/pembelian_actions.xml',
         'views/pembelian_menuitem.xml',
+        'views/pembelian_sequence.xml',
     ],
     'installable': True,
     'application': True,

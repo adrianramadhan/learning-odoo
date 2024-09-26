@@ -5,6 +5,9 @@ class Pembelian(models.Model):
 
     def action_to_approve(self):
         if self.status == 'draft':
+            if self.name == 'New':
+                seq = self.env['ir.sequence'].next_by_code('pembelian.pembelian') or 'New'
+                self.name = seq
             self.status = 'to_approve'
 
     def action_approved(self):
@@ -15,7 +18,7 @@ class Pembelian(models.Model):
         if self.status == 'approved':
             self.status = 'done'
 
-    name = fields.Char(string='Name')
+    name = fields.Char(string='Name', default='New')
     tanggal = fields.Date(string='Tanggal')
     status = fields.Selection([('draft', 'Draft'), ('to_approve', 'To Approve'), ('approved', 'Approved'), ('done', 'Done')], default='draft', string='Status')
     pembelian_ids = fields.One2many('pembelian.line', 'pembelian_id', string='Pembelian Ids')
