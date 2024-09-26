@@ -1,7 +1,28 @@
 from odoo import models, fields, api
+from datetime import date
+from odoo.exceptions import ValidationError
 
 class Pembelian(models.Model):
     _name = 'pembelian.pembelian'
+
+    @api.model
+    def create(self, values):
+        res = super(Pembelian, self).create(values)
+        for rec in res:
+            tanggal_pembelian = rec.tanggal
+            tanggal_sekarang = date.today()
+            if tanggal_pembelian < tanggal_sekarang:
+                raise ValidationError("Tanggal yang Anda inputkan tidak boleh kurang dari tanggal sekarang!")
+        return res
+    
+    def write(self, values):
+        res = super(Pembelian, self).write(values)
+        if 'tanggal' in values:
+            tanggal_pembelian = self.tanggal
+            tanggal_sekarang = date.today()
+            if tanggal_pembelian < tanggal_sekarang:
+                raise ValidationError("Tanggal yang Anda inputkan tidak boleh kurang dari tanggal sekarang!")
+        return res
 
     def action_to_approve(self):
         if self.status == 'draft':
