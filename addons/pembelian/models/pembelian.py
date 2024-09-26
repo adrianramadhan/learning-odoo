@@ -35,12 +35,17 @@ class pembelian_line(models.Model):
         for rec in self:
             rec.sub_total = rec.quantity * rec.price
 
+    # def _domain_product_id(self):
+    #     product_obj = self.env['product.product'].search([('type', '=', 'product')])
+    #     domain = [('id', 'in', product_obj.ids)]
+    #     return domain
+
     pembelian_id = fields.Many2one('pembelian.pembelian', string='Pembelian ID')
-    product_id = fields.Many2one('product.product', string='Product')
+    product_id = fields.Many2one('product.product', string='Product Id')
     description = fields.Text(string='Description')
     quantity = fields.Float(string='Quantity', default=0.0)
     price = fields.Float(string='Price', default=0.0)
-    sub_total = fields.Float(string='Sub Total', compute='_amount_total', store=True)
+    sub_total = fields.Float(string='Sub Total', compute=_amount_total, store=True)
     uom_id = fields.Many2one('uom.uom', string='Uom Id')
 
 class Brand(models.Model):
