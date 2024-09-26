@@ -3,6 +3,18 @@ from odoo import models, fields, api
 class Pembelian(models.Model):
     _name = 'pembelian.pembelian'
 
+    def action_to_approve(self):
+        if self.status == 'draft':
+            self.status = 'to_approve'
+
+    def action_approved(self):
+        if self.status == 'to_approve':
+            self.status = 'approved'
+    
+    def action_done(self):
+        if self.status == 'approved':
+            self.status = 'done'
+
     name = fields.Char(string='Name')
     tanggal = fields.Date(string='Tanggal')
     status = fields.Selection([('draft', 'Draft'), ('to_approve', 'To Approve'), ('approved', 'Approved'), ('done', 'Done')], default='draft', string='Status')
