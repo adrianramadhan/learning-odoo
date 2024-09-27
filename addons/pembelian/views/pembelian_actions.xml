@@ -41,4 +41,17 @@
         <field name="act_window_id" ref="brand_actions_id"/> <!-- Perbaiki ini -->
     </record>
     
+    <record id="actions_pembelian_report_wizard_id" model="ir.actions.act_window">
+        <field name="name">Report Pembelian</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pembelian.report.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pembelian_report_wizard_view_id"/>
+        <field name="target">new</field>
+        <field name="help" type="html">
+            <p class="oe_view_nocontent_create">
+                No Data
+            </p>
+        </field>
+    </record>
 </odoo>

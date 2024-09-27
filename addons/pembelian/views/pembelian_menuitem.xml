@@ -19,4 +19,11 @@
         parent="parent_pembelian_pembelian_id"
         action="brand_actions_id"
     />
+    <menuitem 
+        id="child_pembelian_report_wizard_id"
+        name="Report"
+        sequence="3"
+        parent="parent_pembelian_pembelian_id"
+        action="actions_pembelian_report_wizard_id"
+    />
 </odoo>

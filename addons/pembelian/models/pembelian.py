@@ -76,3 +76,19 @@ class Brand(models.Model):
     _name = 'pembelian.brand'
 
     name = fields.Char(string='Name')
+
+class pembelian_report_wizard(models.TransientModel):
+    _name = 'pembelian.report.wizard'
+
+    name = fields.Char(string='Name')
+    periode_awal = fields.Date(string='Periode Awal')
+    periode_akhir = fields.Date(string='Periode Akhir')
+
+    def action_print_report(self):
+        # Logika untuk mencetak atau menampilkan laporan
+        return {
+            'type': 'ir.actions.report',
+            'report_name': 'nama_report_template',
+            'report_type': 'qweb-pdf',
+            'data': {'periode_awal': self.periode_awal, 'periode_akhir': self.periode_akhir}
+        }
