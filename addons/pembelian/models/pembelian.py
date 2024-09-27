@@ -92,3 +92,12 @@ class pembelian_report_wizard(models.TransientModel):
             'report_type': 'qweb-pdf',
             'data': {'periode_awal': self.periode_awal, 'periode_akhir': self.periode_akhir}
         }
+    
+class product_template(models.Model):
+    _inherit = 'product.template'
+
+    def action_approved(self):
+        if self.status == 'draft':
+            self.status = 'approved'
+
+    status = fields.Selection([('draft', 'Draft'), ('approved', 'Approved'), ('done', 'Done')], default='draft', string='Status')

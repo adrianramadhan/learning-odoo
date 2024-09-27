@@ -8,7 +8,7 @@
     """,
     'website': '',
     'author': 'Adrian Ramadhan',
-    'depends': ['web', 'base', 'product'],
+    'depends': ['web', 'base', 'product', 'stock'],
     'data': [
         'security/ir.model.access.csv',
         'views/pembelian_view.xml',
