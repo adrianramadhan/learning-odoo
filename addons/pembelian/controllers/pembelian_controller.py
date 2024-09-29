@@ -1,9 +1,8 @@
 import json
-import request
-from odoo.test import Form
 import werkzeug.wrappers
 
-from odoo import http, _, exceptions
+from odoo import http, _
+from odoo.http import request
 
 class PembelianRestApi(http.Controller):
     @http.route(['/api/pembelian_get'], type='http', auth='public', methods=['GET'], csrf=False)
@@ -33,6 +32,7 @@ class PembelianRestApi(http.Controller):
             return werkzeug.wrappers.Response(
                 status=200, 
                 content_type='application/json; charset=utf-8',
+                headers=[('Access-Control-Allow-Origin', '*')],  # Tambahkan izin CORS di sini
                 response=json.dumps(data)
             )
         except:
