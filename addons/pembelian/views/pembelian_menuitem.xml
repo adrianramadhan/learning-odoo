@@ -9,9 +9,19 @@
         id="child_pembelian_pembelian_id"
         name="Pembelian"
         sequence="1"
-        parent="parent_pembelian_pembelian_id"
-        action="pembelian_actions_id"
-    />
+        parent="parent_pembelian_pembelian_id"/>
+        <menuitem 
+            id="child_pembelian_pembelian_a_id"
+            name="Pembelian A"
+            sequence="11"
+            parent="child_pembelian_pembelian_id"
+            action="pembelian_actions_id"/>
+        <menuitem 
+            id="child_pembelian_pembelian_b_id"
+            name="Pembelian B"
+            sequence="12"
+            parent="child_pembelian_pembelian_id"
+            action="actions_server_pembelian_b_id"/>
     <menuitem 
         id="child_pembelian_brand_id"
         name="Brand"

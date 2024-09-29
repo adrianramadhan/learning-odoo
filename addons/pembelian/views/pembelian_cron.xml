@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- <data noupdate="0">
+        <record id="delete_pembelian_cron_id" model="ir.cron">
+            <field name="name">Delete Pembelian</field>
+            <field name="model.id" ref="model_pembelian_pembelian" />
+            <field name="type">ir.actions.server</field>
+            <field name="state">code</field>
+            <field></field>
+        </record>
+    </data> -->
+</odoo>

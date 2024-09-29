@@ -15,6 +15,7 @@
         'views/pembelian_actions.xml',
         'views/pembelian_menuitem.xml',
         'views/pembelian_sequence.xml',
+        'views/pembelian_cron.xml',
     ],
     'installable': True,
     'application': True,

@@ -5,6 +5,32 @@ from odoo.exceptions import ValidationError
 class Pembelian(models.Model):
     _name = 'pembelian.pembelian'
 
+    # def show_tree_view(self):
+    #     tree_view_id = self.env['ir.model.data'].xmlid_to_res_id('pembelian_tree_view_id')
+    #     form_view_id = self.env['ir.model.data'].xmlid_to_res_id('pembelian_form_view_id')
+    #     domain = [('status', '=', 'draft')]
+    #     result = {
+    #         'name': 'Pembelian B',
+    #         'type': 'ir.actions.act_window',
+    #         'views': [[tree_view_id, 'tree'], [form_view_id, 'form']],
+    #         'target': 'current',
+    #         'res_model': 'pembelian.pembelian',
+    #         'domain': domain,
+    #         'limit': 40,
+    #     }
+    #     return result
+
+    def show_tree_view(self):
+        return {
+            'name': 'Pembelian B',
+            'type': 'ir.actions.act_window',
+            'views': [[False, 'tree'], [False, 'form']],
+            'target': 'current',
+            'res_model': 'pembelian.pembelian',
+            'domain': [('status', '=', 'draft')],
+            'limit': 40,
+        }
+
     @api.model
     def create(self, values):
         res = super(Pembelian, self).create(values)
@@ -25,11 +51,12 @@ class Pembelian(models.Model):
         return res
 
     def action_to_approve(self):
-        if self.status == 'draft':
-            if self.name == 'New':
-                seq = self.env['ir.sequence'].next_by_code('pembelian.pembelian') or 'New'
-                self.name = seq
-            self.status = 'to_approve'
+        for line in self:
+            if line.status == 'draft':
+                if line.name == 'New':
+                    seq = line.env['ir.sequence'].next_by_code('pembelian.pembelian') or 'New'
+                    line.name = seq
+                line.status = 'to_approve'
 
     def action_approved(self):
         if self.status == 'to_approve':

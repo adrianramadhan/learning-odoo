@@ -54,4 +54,20 @@
             </p>
         </field>
     </record>
+
+    <record id="actions_server_pembelian_to_approve" model="ir.actions.server">
+        <field name="name">To Approve</field>
+        <field name="model_id" ref="model_pembelian_pembelian"/>
+        <field name="binding_model_id" ref="model_pembelian_pembelian"/>
+        <field name="state">code</field>
+        <field name="code">action=records.action_to_approve()</field>
+    </record>
+
+    <record id="actions_server_pembelian_b_id" model="ir.actions.server">
+        <field name="name">Pembelian B</field>
+        <field name="model_id" ref="model_pembelian_pembelian"/>
+        <field name="binding_model_id" ref="model_pembelian_pembelian"/>
+        <field name="state">code</field>
+        <field name="code">action=model.show_tree_view()</field>
+    </record>
 </odoo>
