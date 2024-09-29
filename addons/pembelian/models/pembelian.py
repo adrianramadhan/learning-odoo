@@ -5,20 +5,11 @@ from odoo.exceptions import ValidationError
 class Pembelian(models.Model):
     _name = 'pembelian.pembelian'
 
-    # def show_tree_view(self):
-    #     tree_view_id = self.env['ir.model.data'].xmlid_to_res_id('pembelian_tree_view_id')
-    #     form_view_id = self.env['ir.model.data'].xmlid_to_res_id('pembelian_form_view_id')
-    #     domain = [('status', '=', 'draft')]
-    #     result = {
-    #         'name': 'Pembelian B',
-    #         'type': 'ir.actions.act_window',
-    #         'views': [[tree_view_id, 'tree'], [form_view_id, 'form']],
-    #         'target': 'current',
-    #         'res_model': 'pembelian.pembelian',
-    #         'domain': domain,
-    #         'limit': 40,
-    #     }
-    #     return result
+    def delete_status_draft(self):
+        pembelian_obj = self.env['pembelian.pembelian'].search([('status', '=', 'draft')])
+        for line in pembelian_obj:
+            line.unlink()
+        return True
 
     def show_tree_view(self):
         return {
